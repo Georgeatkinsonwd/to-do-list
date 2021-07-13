@@ -41,7 +41,7 @@ app.post('/addJob',(request,response)=>{
 
 
 app.delete('/completeTask',(request,response)=>{
-    db.collection('to-do-list').deleteOne({jobName: request.body.task})
+    db.collection('to-do-list').deleteOne({jobName: request.body.jobName})
     .then(result =>{
         console.log('Job completed')
         response.json('Job completed')

@@ -9,7 +9,7 @@ async function completeTask () {
     try{
         const response = await fetch('completeTask',{
             method: 'delete',
-            headers: {'Content-type': 'application/json'},
+            headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({
                 'jobName': task
             })
