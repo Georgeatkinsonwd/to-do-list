@@ -11,7 +11,7 @@ async function completeTask () {
             method: 'delete',
             headers: {'Content-type': 'application/json'},
             body: JSON.stringify({
-                'jobName' : 'task'
+                'jobName': task
             })
         })
         const data = await response.json()
