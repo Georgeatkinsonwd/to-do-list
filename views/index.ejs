@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+</html>
+    <h1>Current Jobs</h1>
+    <ul class="currentTasks">
+    <% for(let i=0; i < info.length; i++) {%>
+        <li class="job">
+            <span><%= info[i].jobName %></span>
+            <span class='del'>Completed</span>
+        </li>
+    <% } %>
+    </ul>
+
+    <h2>Add A job:</h2>
+
+    <form action="/addJob" method="POST">
+        <input type="text" placeholder="add job" name="jobName">
+        <input type="submit">
+    </form>
+
+    <script src='js/main.js'></script>
+</body>
+</html>
