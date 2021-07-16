@@ -39,12 +39,46 @@ app.post('/addJob',(request,response)=>{
 })
 
 
+app.put('/completeTask',(request,response)=>{
+    db.collection('to-do-list').updateOne({jobName: request.body.itemFromJS},{
+        $set: {
+            completed: true
+          }
+    },{
+        sort: {_id: -1},
+        upsert: false
+    })
+    .then(result => {
+        console.log('Marked Complete')
+        response.json('Marked Complete')
+    })
+    .catch(error => console.error(error))
 
-app.delete('/completeTask',(request,response)=>{
+})
+
+app.put('/uncompleteTask', (request, response) => {
+    db.collection('to-do-list').updateOne({jobName: request.body.itemFromJS},{
+        $set: {
+            completed: false
+          }
+    },{
+        sort: {_id: -1},
+        upsert: false
+    })
+    .then(result => {
+        console.log('Marked Complete')
+        response.json('Marked Complete')
+    })
+    .catch(error => console.error(error))
+
+})
+
+
+app.delete('/deleteTask',(request,response)=>{
     db.collection('to-do-list').deleteOne({jobName: request.body.jobName})
     .then(result =>{
-        console.log('Job completed')
-        response.json('Job completed')
+        console.log('Job deleted')
+        response.json('Job deleted')
     })
     .catch(error=>console.error(error))
 })
